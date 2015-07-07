@@ -1,4 +1,4 @@
-# smtp-catcher
+# Setup a testing mail server using PHP on Mac OS X
 
 You may already know this feeling. You've spent a few hours developing a shell script to send out billing emails to customers and after pressing "enter" you suddenly realise that your script is sending out hundreds of dummy emails to your customers (you had copied some data from the live server "just to test things out a bit").
 
