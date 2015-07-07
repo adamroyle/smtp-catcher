@@ -7,7 +7,7 @@ You quickly stop the script, but the damage is already done! You're now getting 
 ## How does it work?
 
 1. When an email is sent using PHP's mail() function, the email is piped through to the smtp_catcher.php script.
-2. The smtp_catcher.php script saves the email into a local folder as a .emlx file.
+2. The smtp_catcher.php script saves the email into a local folder as a .eml file.
 3. The email is opened through Apple Mail and displayed on the screen (woo!).
 
 ## Why should I use this?

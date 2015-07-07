@@ -3,7 +3,7 @@
 
 # create a filename for the emlx file
 list($ms, $time) = explode(' ', microtime());
-$filename = dirname(__FILE__) . '/' . date('Y-m-d h.i.s,', $time) . substr($ms,2,3) . '.eml';
+$filename = dirname(__FILE__) . '/' . date('Y-m-d h.i.s,', $time) . substr($ms, 2, 3) . '.eml';
 
 # write the email contents to the file
 $email_contents = fopen('php://stdin', 'r');
