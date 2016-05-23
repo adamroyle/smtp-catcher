@@ -13,3 +13,6 @@ file_put_contents($filename, $email_contents, FILE_APPEND);
 
 # open up the emlx file (using Apple Mail)
 exec('open ' . escapeshellarg($filename));
+
+# prune emails older than 30 days
+exec('find . -name "*.eml" -mtime +30 -delete');
