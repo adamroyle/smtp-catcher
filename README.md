@@ -1,4 +1,10 @@
-# Setup a testing mail server using PHP on Mac OS X
+# Setup a testing mail server using PHP on macOS Sierra
+
+### Changelog
+
+November 15, 2016 - Update instructions to for macOS Sierra
+
+## What is this?
 
 You may already know this feeling. You've spent a few hours developing a shell script to send out billing emails to customers and after pressing "enter" you suddenly realise that your script is sending out hundreds of dummy emails to your customers (you had copied some data from the live server "just to test things out a bit").
 
@@ -35,7 +41,7 @@ Open up your php.ini file and find the following line. Please note, if you have 
 
     ;sendmail_path =
 
-Change it to the following (replacing `<your_username>` with your Mac OS X username).
+Change it to the following (replacing `<your_username>` with your macOS username).
 
     sendmail_path = sudo -u <your_username> /Users/<your_username>/smtp_out/smtp_catcher.php
 
@@ -43,23 +49,24 @@ Save your changes and restart your webserver.
 
 ## Give permission to PHP to open Apple Mail
 
-PHP runs as the www user by default, which will mean smtp_catcher.php won't be able to open your GUI mail program, so we have to give sudo access to the www group. If you are not using the Apache/PHP that comes pre-installed in Mac OS X, then you may need to change "www" to suit your needs.
+PHP runs as the `_www` user by default, which will mean smtp_catcher.php won't be able to open your GUI mail program, so we have to give sudo access to the `_www` group. If you are not using the Apache/PHP that comes pre-installed in Mac OS X, then you may need to change `_www` to suit your needs. Mac OS X versions prior to macOS Sierra should use `www` instead of `_www`.
 
     sudo visudo
 
 Add the following line to the sudoers file and save (replacing <your_username> with... yep, your username).
 
-    %www    ALL=(ALL)   NOPASSWD: /Users/<your_username>/smtp_out/smtp_catcher.php
+    %_www    ALL=(ALL)   NOPASSWD: /Users/<your_username>/smtp_out/smtp_catcher.php
 
-This will now give permission to PHP to execute the smtp_catcher.php script with sudo permissions, without having to enter a password!.
+This will now give permission to PHP to execute the smtp_catcher.php script with sudo permissions, without having to enter a password!
 
 ## Test it to make sure everything works
 
 The final step is to create and execute a test script, which can be as simple as this.
 
-    <?php
-    mail('john.doe@example.com', 'The Magical Subject Line', 'The Magical Message Body');
-    ?>
+```php
+<?php
+mail('john.doe@example.com', 'The Magical Subject Line', 'The Magical Message Body');
+```
 
 ## What if I'm using PHP on Windows?
 
