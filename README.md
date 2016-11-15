@@ -2,7 +2,8 @@
 
 ### Changelog
 
-November 15, 2016 - Update instructions to for macOS Sierra
+**November 15, 2016**  
+Update instructions to for macOS Sierra. Fix bug with deleting older saved eml files.
 
 ## What is this?
 
